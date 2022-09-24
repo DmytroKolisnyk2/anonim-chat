@@ -1,0 +1,29 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "prisma:build": "prisma db push && prisma generate",
+    "prisma:push": "prisma db push",
+    "prisma:generate": "prisma generate",
+    "prisma:studio": "prisma studio"
+  },
+  "author": "Kolisnyk Dmytro",
+  "license": "ISC",
+  "dependencies": {
+    "@graphql-yoga/node": "^2.13.5",
+    "@prisma/client": "^4.1.1",
+    "graphql": "^16.5.0",
+    "graphql-ws": "^5.9.1",
+    "prisma": "^4.1.1",
+    "ws": "^8.8.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  },
+  "prisma": {
+    "schema": "database/schema.prisma"
+  }
+}

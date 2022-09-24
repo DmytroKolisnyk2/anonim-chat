@@ -1,0 +1,47 @@
+type Post {
+  id: ID
+  text: String!
+  like: Int!
+  dislike: Int!
+  replyFrom: Int
+  replyText: String
+}
+type Posts {
+  count: Int!
+  postList: [Post]
+}
+type Query {
+  version: String!
+  posts(filter: String, skip: Int, take: Int, orderBy: ProductOrderByInput): Posts
+}
+enum Sort {
+  asc
+  desc
+}
+input ProductOrderByInput {
+  like: Sort
+  dislike: Sort
+  id: Sort
+}
+
+input PostInput {
+  text: String!
+  replyFrom: Int
+  replyText: String
+}
+
+type Mutation {
+  createPost(post: PostInput): Post
+  addLike(id: Int): Post
+  addDislike(id: Int): Post
+}
+
+type Subscription {
+  newPost: Post
+}
+type Subscription {
+  newLike: Post
+}
+type Subscription {
+  newDislike: Post
+}
